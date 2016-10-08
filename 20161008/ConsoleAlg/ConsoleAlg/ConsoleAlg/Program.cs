@@ -13,22 +13,36 @@ namespace Pi015.ConsoleAlg
 
     private static void Main(string[] args)
     {
-      //
-
-
       // --------------------------------------
-      int[] ar = new
-        int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10 };
+      int[] ar0 =
+      {
+        1, 
+        2, 
+        3, 
+        4, 
+        5, 
+        6, 
+        7, 
+        8, 
+        9, 
+        10, 
+        11
+      };
+      int[] ar = new int[]
+      {
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10
+      };
+      char[] arLetters = { 'а', 'е', 'и', 'о' };
+      string sSentence = "Я считаю все символы-гласные!";
+      char c = sSentence[1];
       int[] ar2 = new int[4];
       ar2[0] = 0;
       ar2[1] = 3;
       ar2[2] = 4;
       ar2[3] = 3;
-      int iMod = 4 % 2; // 0
+      int iMod = 4 % 2; // 4 mod 2 = 0
 
 
-      char[] arLetters = {'а', 'е', 'и', 'о'};
-      string sSentence = "Я считаю все символы-гласные!";
 
       Console.WriteLine(SumEven(new int[0]));
       Console.WriteLine(SumEven(new[] { 1, 2, 3, 4 }));
@@ -41,13 +55,12 @@ namespace Pi015.ConsoleAlg
     private static int SumEven(int[] ar)
     {
       //....
-      for (; false; )
-      {
-        
-      }
+      /*
+      for (; true; ) {
+        // --
+      }*/
       int iSum = 0;
-      for (int ii = 0; ii < ar.Length; ii++)
-      {
+      for (int ii = 0; ii < ar.Length; ii++) {
         // 0,1,2,3
         iSum += ar[ii];
       }
