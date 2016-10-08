@@ -32,7 +32,8 @@ namespace Pi015.Intro.PWindowsForms
     {
       /* MessageBox.Show("!"); */
       Text = 
-        Pi015.Intro.PWindowsForms.Tool.GetFormTitle();
+        // <имя объекта>.<имя метода>()
+        Pi015.Intro.PDll.Tool.GetFormTitle();
     }
   }
 }
