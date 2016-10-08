@@ -13,6 +13,9 @@ namespace Pi015.ConsoleAlg
 
     private static void Main(string[] args)
     {
+      //
+
+
       // --------------------------------------
       int[] ar = new
         int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10 };
@@ -37,16 +40,16 @@ namespace Pi015.ConsoleAlg
 
     private static int SumEven(int[] ar)
     {
-      int iSum = 0;
       //....
       for (; false; )
       {
         
       }
-
-      for (int ii = 0; ii < 4; ii++)
+      int iSum = 0;
+      for (int ii = 0; ii < ar.Length; ii++)
       {
         // 0,1,2,3
+        iSum += ar[ii];
       }
 
       return iSum;
