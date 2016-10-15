@@ -13,7 +13,27 @@ namespace Pi015.Intro.PDll
     /// <returns></returns>
     public static string GetFormTitle()
     {
+      if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday)
+      {
+        UserException pException = new UserException(
+          "По субботам работать нельзя");
+        //pException.Data["id"] = 1;
+        throw pException;
+      }
       return DateTime.Now.ToString();
     }
   }
+
+  /// <summary>
+  /// 
+  /// </summary>
+  public class UserException: Exception
+  {
+    public UserException(string sMessage) :
+      base(sMessage)
+    {
+      
+    }
+  }
+
 }
