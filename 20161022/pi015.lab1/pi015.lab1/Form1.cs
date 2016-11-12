@@ -1,7 +1,11 @@
-﻿#region Usings
+﻿#define EXTERNAL_CAMERA
+
+#region Usings
 
 using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using pi015.lab1.classes;
 
@@ -25,23 +29,30 @@ namespace pi015.lab1
     /// <summary>
     /// .ctor
     /// </summary>
+#if EXTERNAL_CAMERA
+    public Form1(CCamera pCamera)
+    {
+      InitializeComponent();
+      m_pCamera = pCamera;
+    }
+#else
     public Form1()
     {
       InitializeComponent();
-      m_pCamera = new CCamera
-      {
-        Name = "Фотоаппарат №1", 
-        Brand = "Зенит-М", 
-        Memory =
-        {
-          Amount = 7
-        }
-      };
+      m_pCamera = new CCamera();
+      m_pCamera.Name = "Фотоаппарат №1";
+      m_pCamera.Brand = "Зенит-М";
+      m_pCamera.Memory.Amount = 7;
     }
-
+#endif
     #endregion
 
     #region event handlers
+
+    private void Form1_Load(object sender, EventArgs e)
+    {
+      h_RefreshList();
+    }
 
     private void button1_Click(object sender, EventArgs e)
     {
@@ -91,11 +102,27 @@ namespace pi015.lab1
 
     #endregion
 
-
     #region private methods
+
+
+    //private void h_RefreshList2()
+    //{
+    //  CCamera pCamera = new CCamera();
+    //  pCamera.Memory.Amount = 10;
+    //  pCamera.AddPhoto(new CPhoto()
+    //  {
+    //    Title =" 12",// ...
+    //  });
+    //  IEnumerable<CPhoto> photoList = 
+    //    pCamera.GetPhotoList();
+    //  CPhoto pFirstOne = 
+    //    photoList.First();
+    //  MessageBox.Show(pFirstOne.Title);
+    //}
 
     private void h_RefreshList()
     {
+      //h_RefreshList2();
       listView1.Items.Clear();
       foreach (CPhoto pPhoto in m_pCamera.GetPhotoList())
       {
@@ -110,7 +137,6 @@ namespace pi015.lab1
     }
 
     #endregion
-
 
   }
 }

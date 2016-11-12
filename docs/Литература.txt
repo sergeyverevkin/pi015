@@ -1,0 +1,6 @@
+C# для школьников: Учебное пособие / М. Дрейер
+	http://download.microsoft.com/documents/rus/msdn/c_sharp2.pdf
+
+CLR via C#. Программирование на платформе Microsoft
+	http://www.e-reading.club/bookreader.php/135083/Rihter_-_CLR_via_C%23._Programmirovanie_na_platforme_Microsoft_.NET_Framework_2.0_na_yazyke_C%23.pdf
+

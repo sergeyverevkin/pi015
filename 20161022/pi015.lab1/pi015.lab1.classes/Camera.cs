@@ -85,6 +85,18 @@ namespace pi015.lab1.classes
       return Memory.PhotoList;
     } 
     
+    
+    /// <summary>
+    /// Копирование фотографий с "внешней" карты памяти
+    /// </summary>
+    /// <param name="pMemory"></param>
+    public void CopyFromMemory(CMemory pMemory)
+    {
+      foreach (CPhoto pPhoto in pMemory.PhotoList)
+      {
+        AddPhoto(pPhoto);
+      }
+    }
     #endregion
 
 
