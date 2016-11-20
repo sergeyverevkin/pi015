@@ -18,13 +18,13 @@ namespace pi015.lab1
     /// The main entry point for the application.
     /// </summary>
     [STAThread]
-    static void Main()
+    static void MainSequencedRun()
     {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
- 
+
 #if EXTERNAL_CAMERA
-     
+
       CCamera pCamera = new CCamera();
       pCamera.Name = "Фотоаппарат №1";
       pCamera.Brand = "Зенит-М";
@@ -32,23 +32,23 @@ namespace pi015.lab1
 
       // заполнение внешней карты памяти
       CMemory pMemory = new CMemory();
-      CPhoto pPhoto = new CPhoto() {Title="adsf"};
-      pMemory.PhotoList.Add(pPhoto);    
+      CPhoto pPhoto = new CPhoto() {
+        Title = "adsf"
+      };
+      pMemory.PhotoList.Add(pPhoto);
       // копирование с карты памяти на внутреннюю память
       pCamera.CopyFromMemory(pMemory);
 
 
 
 
-
       // проверка, что есть хотя бы одна фотография во внутренней памяти
-      if (!pCamera.GetPhotoList().Any()) 
-        // pCamera.GetPhotoList().Count() == 0)
+      if (!pCamera.GetPhotoList().Any())
+      // pCamera.GetPhotoList().Count() == 0)
       {
         MessageBox.Show(@"Нет ни одной фотографии");
       }
-      else
-      {
+      else {
         // запуск формы
         Form1 pMainForm = new Form1(pCamera);
         pMainForm.Text = "1";
@@ -66,6 +66,49 @@ namespace pi015.lab1
         Form1 pMainForm = new Form1(pCamera);
         Application.Run(pMainForm);
 #endif
+    }
+
+
+    /// <summary>
+    /// The main entry point for the application.
+    /// </summary>
+    [STAThread]
+    static void Main()
+    {
+      Application.EnableVisualStyles();
+      Application.SetCompatibleTextRenderingDefault(false);
+
+      CCamera pCamera = new CCamera();
+      pCamera.Name = "Фотоаппарат №1";
+      pCamera.Brand = "Зенит-М";
+      pCamera.Memory.Amount = 7;
+
+      // заполнение внешней карты памяти
+      CMemory pMemory = new CMemory();
+      CPhoto pPhoto = new CPhoto() {
+        Title = "adsf"
+      };
+      pMemory.PhotoList.Add(pPhoto);
+      // копирование с карты памяти на внутреннюю память
+      pCamera.CopyFromMemory(pMemory);
+
+
+
+
+      // проверка, что есть хотя бы одна фотография во внутренней памяти
+      if (!pCamera.GetPhotoList().Any())
+      // pCamera.GetPhotoList().Count() == 0)
+      {
+        MessageBox.Show(@"Нет ни одной фотографии");
+      }
+      else {
+        // запуск формы
+        Form1 pMainForm = new Form1(pCamera);
+        pMainForm.Text = "Камера";
+        Application.Run(
+          pMainForm
+          );
+      }
     }
   }
 }

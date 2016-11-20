@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using pi015.lab1.classes;
@@ -138,5 +139,33 @@ namespace pi015.lab1
 
     #endregion
 
+    private void button3_Click(object sender, EventArgs e)
+    {
+      string sFn = "$$" + Guid.NewGuid().ToString("N");
+
+      m_pCamera.SaveToFile(sFn);
+    }
+
+    private void button4_Click(object sender, EventArgs e)
+    {
+      string[] arFiles = Directory.GetFiles(".", "$$*");
+      string sWorkFile = arFiles.FirstOrDefault();
+      if (String.IsNullOrEmpty(sWorkFile))
+      {
+        MessageBox.Show("Нет файлов для обработки (загрузки)");
+        return;
+      }
+      // убираем дополнительное расширение найденного файла, чтобы найти базовое имя файла, 
+      // от которого загружать
+      string sName = Path.GetFileNameWithoutExtension(sWorkFile);
+      m_pCamera.LoadFromFile(sName);
+      h_RefreshList();
+    }
+
+    private void button5_Click(object sender, EventArgs e)
+    {
+      m_pCamera.Memory.Format();
+      h_RefreshList();
+    }
   }
 }
