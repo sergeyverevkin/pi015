@@ -1,0 +1,12 @@
+<storage>
+  <phone>
+    <contact date="01.01.1990">
+      <phone>+7 913 1212121</phone>
+      <title>Игорь Иванович</title>
+    </contact>
+    <contact date="01.02.1970">
+      <phone>+7 913 121221</phone>
+      <title>Сергей Иванович</title>
+    </contact>
+  </phone>
+</storage>

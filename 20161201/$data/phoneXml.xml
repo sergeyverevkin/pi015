@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<pHoNe xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <lst>
+    <coNtaCt>
+      <Title>Игорь Иванович</Title>
+      <Phone>+7 913 1212121</Phone>
+      <BirthDate>1990-01-01T00:00:00</BirthDate>
+    </coNtaCt>
+    <coNtaCt>
+      <Title>Сергей Иванович</Title>
+      <Phone>+7 913 121221</Phone>
+      <BirthDate>1970-02-01T00:00:00</BirthDate>
+    </coNtaCt>
+  </lst>
+</pHoNe>
