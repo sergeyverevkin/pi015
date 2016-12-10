@@ -60,7 +60,7 @@ namespace XMLApp
     /// <param name="dtBorn"></param>
     public CContact(string sTitle, string sPhone, DateTime dtBorn): this()
     {
-      Title = sTitle;
+      m_sTitle = sTitle;
       Phone = sPhone;
       BirthDate = dtBorn;
     }
@@ -77,9 +77,24 @@ namespace XMLApp
     // [XmlElement("titLe")]
     public string Title
     {
-      get;
-      set;
+      get
+      {
+        return m_sTitle;
+      }
+      set
+      {
+        string sValue = value.Trim();
+        if (sValue.Length < 3)
+        {
+          // некорректная длина
+          Exception pE =
+            new ArgumentException("некорректная длина");
+          throw pE;
+        }
+        m_sTitle = value;
+      }
     }
+    private string m_sTitle;
 
     /// <summary>
     /// Номер телефона
