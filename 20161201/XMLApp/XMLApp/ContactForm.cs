@@ -34,6 +34,7 @@ namespace XMLApp
         ? "новая запись"
         : pContact.Title);
       m_pContact = pContact;
+      h_FillForm();
     }
 
     #endregion

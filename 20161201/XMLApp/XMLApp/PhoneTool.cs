@@ -99,26 +99,6 @@ namespace XMLApp
         }
       }
     }
-
-    private static CContact h_ReadContact(XmlReader pReader)
-    {
-      string sDate = pReader.GetAttribute("date");
-      pReader.ReadToFollowing("phone");
-      string sPhone = pReader.ReadElementString();
-      pReader.ReadToFollowing("title");
-      string sTitle = pReader.ReadElementString();
-      var pC = new CContact(sTitle, sPhone, DateTime.Parse(sDate));
-      while (pReader.NodeType != XmlNodeType.Element)
-      {
-        pReader.Read();
-        if (pReader.NodeType == XmlNodeType.None)
-        {
-          break;
-        }
-      }
-      return pC;
-    }
-
     /// <summary>
     /// Сохранение через SAX
     /// </summary>
@@ -190,6 +170,32 @@ namespace XMLApp
     }
 
     #endregion
+
+
+    #region private static methods
+
+    private static CContact h_ReadContact(XmlReader pReader)
+    {
+      string sDate = pReader.GetAttribute("date");
+      pReader.ReadToFollowing("phone");
+      string sPhone = pReader.ReadElementString();
+      pReader.ReadToFollowing("title");
+      string sTitle = pReader.ReadElementString();
+      var pC = new CContact(sTitle, sPhone, DateTime.Parse(sDate));
+      while (pReader.NodeType != XmlNodeType.Element)
+      {
+        pReader.Read();
+        if (pReader.NodeType == XmlNodeType.None)
+        {
+          break;
+        }
+      }
+      return pC;
+    }
+
+
+    #endregion
+
   }
 
   #endregion

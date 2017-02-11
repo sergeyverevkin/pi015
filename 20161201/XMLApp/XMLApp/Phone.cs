@@ -38,6 +38,57 @@ namespace XMLApp
     }
 
     #endregion
+
+
+    #region public methods
+
+    /// <summary>
+    /// Получить данные с учетом фильтра
+    /// </summary>
+    /// <param name="bCheckedJan"></param>
+    /// <param name="bCheckedFeb"></param>
+    /// <returns></returns>
+    public List<CContact> GetContactList(bool bCheckedJan, bool bCheckedFeb)
+    {
+      List<CContact> arResult = new List<CContact>();
+      foreach (var pC in ContactList)
+      {
+        if (!bCheckedJan && pC.BirthDate.Month == 1)
+        {
+          continue;
+        }
+        if (!bCheckedFeb && pC.BirthDate.Month == 2)
+        {
+          continue;
+        }
+        arResult.Add(pC);
+      }
+      return arResult;
+    }
+
+    #endregion
+    /// <summary>
+    /// Получить контакт по идентификатору
+    /// </summary>
+    /// <param name="sGuid"></param>
+    /// <returns></returns>
+    public CContact GetContact(string sGuid)
+    {
+      foreach (CContact p in ContactList)
+      {
+        if (p.Id == sGuid) return p;
+      }
+      return null;
+    }
+
+    /// <summary>
+    /// Обновление данных
+    /// </summary>
+    /// <param name="pContact"></param>
+    public void UpdateContact(CContact pContact)
+    {
+      // обновление данных в источнике по pContact.Id
+    }
   }
 
   #region Класс контактов
@@ -50,6 +101,7 @@ namespace XMLApp
     /// </summary>
     protected CContact()
     {
+      Id = Guid.NewGuid().ToString("N");
     }
 
     /// <summary>
@@ -58,7 +110,8 @@ namespace XMLApp
     /// <param name="sTitle"></param>
     /// <param name="sPhone"></param>
     /// <param name="dtBorn"></param>
-    public CContact(string sTitle, string sPhone, DateTime dtBorn): this()
+    public CContact(string sTitle, string sPhone, DateTime dtBorn)
+      : this()
     {
       m_sTitle = sTitle;
       Phone = sPhone;
@@ -84,8 +137,7 @@ namespace XMLApp
       set
       {
         string sValue = value.Trim();
-        if (sValue.Length < 3)
-        {
+        if (sValue.Length < 3) {
           // некорректная длина
           Exception pE =
             new ArgumentException("некорректная длина");
@@ -100,6 +152,23 @@ namespace XMLApp
     /// Номер телефона
     /// </summary>
     public string Phone
+    {
+      get;
+      set;
+    }
+
+    /// <summary>
+    /// Email
+    /// </summary>
+    public string Email
+    {
+      get;
+      set;
+    }
+    /// <summary>
+    /// Id
+    /// </summary>
+    public string Id
     {
       get;
       set;
