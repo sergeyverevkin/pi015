@@ -26,6 +26,11 @@ namespace GameField
       IsExit = (enCellType == ECellType.Place);
     }
 
+    /// <summary>
+    /// Объект, отображающий ячейку
+    /// </summary>
+    public object Container { get; set; }
+
     public int X
     {
       get;

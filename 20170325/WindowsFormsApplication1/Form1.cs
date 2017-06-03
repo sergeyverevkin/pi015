@@ -34,7 +34,6 @@ namespace WindowsFormsApplication1
     private void button6_Click(object sender, EventArgs e)
     {
       m_pRefreshTimer.Start();
-
     }
 
     private void button1_Click(object sender, EventArgs e)

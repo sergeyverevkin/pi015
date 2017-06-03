@@ -32,11 +32,14 @@
       this.button3 = new System.Windows.Forms.Button();
       this.button4 = new System.Windows.Forms.Button();
       this.button5 = new System.Windows.Forms.Button();
+      this.panel1 = new System.Windows.Forms.Panel();
+      this.pictureBoxField = new System.Windows.Forms.PictureBox();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxField)).BeginInit();
       this.SuspendLayout();
       // 
       // button1
       // 
-      this.button1.Location = new System.Drawing.Point(31, 12);
+      this.button1.Location = new System.Drawing.Point(685, 11);
       this.button1.Name = "button1";
       this.button1.Size = new System.Drawing.Size(75, 23);
       this.button1.TabIndex = 0;
@@ -46,7 +49,7 @@
       // 
       // button2
       // 
-      this.button2.Location = new System.Drawing.Point(333, 50);
+      this.button2.Location = new System.Drawing.Point(762, 11);
       this.button2.Name = "button2";
       this.button2.Size = new System.Drawing.Size(75, 23);
       this.button2.TabIndex = 1;
@@ -56,7 +59,7 @@
       // 
       // button3
       // 
-      this.button3.Location = new System.Drawing.Point(405, 73);
+      this.button3.Location = new System.Drawing.Point(834, 34);
       this.button3.Name = "button3";
       this.button3.Size = new System.Drawing.Size(75, 23);
       this.button3.TabIndex = 2;
@@ -66,7 +69,7 @@
       // 
       // button4
       // 
-      this.button4.Location = new System.Drawing.Point(333, 102);
+      this.button4.Location = new System.Drawing.Point(762, 63);
       this.button4.Name = "button4";
       this.button4.Size = new System.Drawing.Size(75, 23);
       this.button4.TabIndex = 3;
@@ -76,7 +79,7 @@
       // 
       // button5
       // 
-      this.button5.Location = new System.Drawing.Point(256, 73);
+      this.button5.Location = new System.Drawing.Point(685, 34);
       this.button5.Name = "button5";
       this.button5.Size = new System.Drawing.Size(75, 23);
       this.button5.TabIndex = 4;
@@ -84,11 +87,31 @@
       this.button5.UseVisualStyleBackColor = true;
       this.button5.Click += new System.EventHandler(this.button5_Click);
       // 
+      // panel1
+      // 
+      this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+      this.panel1.Location = new System.Drawing.Point(0, 0);
+      this.panel1.Name = "panel1";
+      this.panel1.Size = new System.Drawing.Size(341, 307);
+      this.panel1.TabIndex = 5;
+      // 
+      // pictureBoxField
+      // 
+      this.pictureBoxField.Dock = System.Windows.Forms.DockStyle.Left;
+      this.pictureBoxField.Location = new System.Drawing.Point(341, 0);
+      this.pictureBoxField.Name = "pictureBoxField";
+      this.pictureBoxField.Size = new System.Drawing.Size(338, 307);
+      this.pictureBoxField.TabIndex = 6;
+      this.pictureBoxField.TabStop = false;
+      // this.pictureBoxField.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxField_Paint);
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(596, 262);
+      this.ClientSize = new System.Drawing.Size(916, 307);
+      this.Controls.Add(this.pictureBoxField);
+      this.Controls.Add(this.panel1);
       this.Controls.Add(this.button5);
       this.Controls.Add(this.button4);
       this.Controls.Add(this.button3);
@@ -96,6 +119,7 @@
       this.Controls.Add(this.button1);
       this.Name = "Form1";
       this.Text = "Form1";
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxField)).EndInit();
       this.ResumeLayout(false);
 
     }
@@ -107,6 +131,8 @@
     private System.Windows.Forms.Button button3;
     private System.Windows.Forms.Button button4;
     private System.Windows.Forms.Button button5;
+    private System.Windows.Forms.Panel panel1;
+    private System.Windows.Forms.PictureBox pictureBoxField;
   }
 }
 
